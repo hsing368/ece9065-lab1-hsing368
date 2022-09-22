@@ -12,9 +12,14 @@
     
     <!-- Place your content here -->
     <h1>SE 3316 Lab 1</h1>
-    <button class="button button2" id="button2">Search by number</button>
-    <button class="button button1" id="button1" onclick="myFunction()">Search by name</button>
-
+    <p>
+        Enter Pokemon Number <input type="number" id="pokeno">
+        <button class="button button1" id="pokenobutton" onclick="validate_getpokeno()">Search by number</button>
+    </p>
+    <p>
+        Enter Pokemon Name <input type="text" id="pokename">
+        <button class="button button2" id="pokenamebutton" onclick="validate_getpokename()">Search by name</button>
+    </p>
     <div class="flexbox-container">
         <div class="flexbox-item flexbox-item1">
             <img src="resources/images/pokemon/1.png" style="width:100%">
@@ -108,5 +113,6 @@
 
     <!-- Embedded JavaScript go here -->
     <script src="resources/js/search.js"></script>
+    <script src="resources/js/validation.js"></script>
 </body>
 </html>
