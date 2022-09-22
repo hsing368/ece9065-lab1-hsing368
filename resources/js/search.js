@@ -31,19 +31,49 @@ const pokemon_data =
     {
       return;
     }
+
     let ip_name = name.toLowerCase();
     let pokemon_found = false;
     for (let i = 0; i < pokemon_data.length; i++)
     {
-      let stored_name = pokemon_data[i][0].toString().toLowerCase();//(typeof pokemon_data[i][0]);//.toLowerCase();
-      console.log(ip_name+" "+stored_name+" yo");
+      let stored_name = pokemon_data[i][0].toString().toLowerCase();
+      //console.log(ip_name+" "+stored_name);
       if ( ip_name.match(stored_name) )
       {
         alert("Pokemon match!!");
         pokemon_found = true;
         console.log("returning");
         break;
-        //console.log(x+" "+y+"Awesome match");
+      }
+    }
+
+    if( pokemon_found  == false)
+    {
+      alert("Pokemon not found :( !!");
+      return;
+    }
+  }
+
+  function searchByNumber()
+  {
+    let ip_number = document.getElementById("pokeno").value;
+    let ret_val = validate_getpokeno(ip_number);
+    if (ret_val == false)
+    {
+      return;
+    }
+
+    let pokemon_found = false;
+    for (let i = 0; i < pokemon_data.length; i++)
+    {
+      let stored_number = pokemon_data[i][1];
+      console.log(ip_number + " " + stored_number);
+      if ( ip_number == stored_number )
+      {
+        alert("Pokemon match!!");
+        pokemon_found = true;
+        console.log("returning");
+        break;
       }
     }
 

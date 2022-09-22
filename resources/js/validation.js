@@ -10,14 +10,15 @@ function validate_getpokename(x)
     {
         alert("Must input string");
         return false;
-    }
+            }
     return true;
 }
-function validate_getpokeno()
+function validate_getpokeno(x)
 {
-    var x=document.getElementById("pokeno").value;
     if (x<1 || x>20)
     {
-        alert("Match found");
+        alert("Match input number between 1-20");
+        return false;
     }
+    return true;
 }
