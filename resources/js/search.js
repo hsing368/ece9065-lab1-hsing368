@@ -94,23 +94,37 @@ function searchByName()
 
   let ip_name = name.toLowerCase();
   let pokemon_found = false;
+  let result = [];
   for (let i = 0; i < pokemon_data.length; i++)
   {
     let stored_name = pokemon_data[i][0].toString().toLowerCase();
-    if ( ip_name.match(stored_name) )
+    if ( stored_name.includes(ip_name) )
     {
-      alert("Pokemon match!!! " + pokemon_data[i][0]);
+      result.push("Name: " + pokemon_data[i][0].toString() + " Description: " + pokemon_data[i][4][0].toString() + " " + pokemon_data[i][4][1].toString() + "\n");
       pokemon_found = true;
-      console.log("returning");
-      clearInput();
-      break;
+      console.log("returning" + pokemon_data[i][0]);
+
+      if(result.length == 5)
+      {
+        break;
+      }
     }
   }
-
+  console.log(result);
   if( pokemon_found  == false)
   {
     alert("Pokemon not found :( !!");
-    clearInput();
     return;
   }
+  else
+  {
+    let alert_message = "Pokemon match found for: \"" + ip_name + "\" !!\n" ;
+    result.sort();
+    for (let i = 0; i < result.length; i++)
+    {
+      alert_message += result[i];
+    }
+    alert( alert_message );
+  }
+  clearInput();
 }
