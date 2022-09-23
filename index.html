@@ -11,104 +11,160 @@
 <body>
     
     <!-- Place your content here -->
-    <h1>SE 3316 Lab 1</h1>
+    <h1>SE 9065 Lab 1</h1>
     <p>
-        Enter Pokemon Number <input type="number" id="pokeno">
-        <button class="button button1" id="pokenobutton" onclick="validate_getpokeno()">Search by number</button>
+        Enter Pokemon Number <input type="number" onkeypress="searchKeyPress(event,'number')" id="pokeno">
+        <button class="button button1" id="pokenobutton" onclick="searchByNumber()">Search by number</button>
     </p>
     <p>
-        Enter Pokemon Name <input type="text" id="pokename">
-        <button class="button button2" id="pokenamebutton" onclick="validate_getpokename()">Search by name</button>
+        Enter Pokemon Name <input type="text" onkeypress="searchKeyPress(event,'name')" id="pokename">
+        <button class="button button2" id="pokenamebutton" onclick="searchByName()">Search by name</button>
     </p>
     <div class="flexbox-container">
         <div class="flexbox-item flexbox-item1">
-            <img src="resources/images/pokemon/1.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/1.png" style="width:100%">
+                <p class="caption">Caption1</p>
+            </li>
         </div>
         <div class="flexbox-item flexbox-item2">
-            <img src="resources/images/pokemon/2.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/2.png" style="width:100%">
+                <p class="caption">Caption2</p>
+            </li>
         </div>
         <div class="flexbox-item flexbox-item3-1">
-            <img src="resources/images/pokemon/3.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/3.png" style="width:100%">
+                <p class="caption">Caption3</p>
+            </li>
         </div>
         <!--
         <div class="flexbox-item flexbox-item3-2">
+            <li>
             <img src="resources/images/pokemon/3-mega.png" style="width:100%">
+            </li>
         </div>
         -->
         <div class="flexbox-item flexbox-item4">
-            <img src="resources/images/pokemon/4.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/4.png" style="width:100%">
+            </li>
         </div>
         <div class="flexbox-item flexbox-item5">
-            <img src="resources/images/pokemon/5.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/5.png" style="width:100%">
+            </li>
         </div>
         <div class="flexbox-item flexbox-item6-1">
-            <img src="resources/images/pokemon/6.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/6.png" style="width:100%">
+            </li>
         </div>
         <!--
         <div class="flexbox-item flexbox-item6-2">
-            <img src="resources/images/pokemon/6-mega-x.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/6-mega-x.png" style="width:100%">
+            </li>
         </div>
         <div class="flexbox-item flexbox-item6-3">
-            <img src="resources/images/pokemon/6-mega-y.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/6-mega-y.png" style="width:100%">
+            </li>
         </div>
         -->
         <div class="flexbox-item flexbox-item7">
-            <img src="resources/images/pokemon/7.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/7.png" style="width:100%">
+            </li>
         </div>
         <div class="flexbox-item flexbox-item8">
-            <img src="resources/images/pokemon/8.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/8.png" style="width:100%">
+            </li>
         </div>
         <div class="flexbox-item flexbox-item9-1">
-            <img src="resources/images/pokemon/9.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/9.png" style="width:100%">
+            </li>
         </div>
         <!--
         <div class="flexbox-item flexbox-item9-2">
-            <img src="resources/images/pokemon/9-mega.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/9-mega.png" style="width:100%">
+            </li>
         </div>
         -->
         <div class="flexbox-item flexbox-item10">
-            <img src="resources/images/pokemon/10.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/10.png" style="width:100%">
+            </li>
         </div>
         <div class="flexbox-item flexbox-item11">
-            <img src="resources/images/pokemon/11.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/11.png" style="width:100%">
+            </li>
         </div>
         <div class="flexbox-item flexbox-item12">
-            <img src="resources/images/pokemon/12.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/12.png" style="width:100%">
+            </li>
         </div>
         <div class="flexbox-item flexbox-item13">
-            <img src="resources/images/pokemon/13.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/13.png" style="width:100%">
+            </li>
         </div>
         <div class="flexbox-item flexbox-item14">
-            <img src="resources/images/pokemon/14.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/14.png" style="width:100%">
+            </li>
         </div>
         <div class="flexbox-item flexbox-item15-1">
-            <img src="resources/images/pokemon/15.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/15.png" style="width:100%">
+            </li>
         </div>
         <!--
         <div class="flexbox-item flexbox-item15-2">
-            <img src="resources/images/pokemon/15-mega.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/15-mega.png" style="width:100%">
+            </li>
         </div>
         -->
         <div class="flexbox-item flexbox-item16">
-            <img src="resources/images/pokemon/16.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/16.png" style="width:100%">
+            </li>
         </div>
         <div class="flexbox-item flexbox-item17">
-            <img src="resources/images/pokemon/17.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/17.png" style="width:100%">
+            </li>
         </div>
         <div class="flexbox-item flexbox-item18-1">
-            <img src="resources/images/pokemon/18.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/18.png" style="width:100%">
+            </li>
         </div>
         <!--
         <div class="flexbox-item flexbox-item18-2">
-            <img src="resources/images/pokemon/18-mega.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/18-mega.png" style="width:100%">
+            </li>
         </div>
         -->
         <div class="flexbox-item flexbox-item19">
-            <img src="resources/images/pokemon/19.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/19.png" style="width:100%">
+            </li>
         </div>
         <div class="flexbox-item flexbox-item20">
-            <img src="resources/images/pokemon/20.png" style="width:100%">
+            <li>
+                <img src="resources/images/pokemon/20.png" style="width:100%">
+            </li>
         </div>
+
     </div>
 
     <!-- Embedded JavaScript go here -->

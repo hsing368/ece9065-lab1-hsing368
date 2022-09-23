@@ -13,6 +13,7 @@ function validate_getpokename(x)
             }
     return true;
 }
+
 function validate_getpokeno(x)
 {
     if (x<1 || x>20)
