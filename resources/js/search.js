@@ -57,33 +57,42 @@ function searchByNumber()
   }
 
   let pokemon_found = false;
+  let result = [];
   for (let i = 0; i < pokemon_data.length; i++)
   {
     let stored_number = pokemon_data[i][1];
     console.log(ip_number + " " + stored_number);
     if ( ip_number == stored_number )
     {
-      alert("Pokemon match!! " + pokemon_data[i][0]);
+      console.log("Pokemon match!! " + pokemon_data[i][0]);
+      result.push("Name: " + pokemon_data[i][0].toString() + " Description: " + pokemon_data[i][4][0].toString() + " " + pokemon_data[i][4][1].toString() + "\n");
       pokemon_found = true;
-      // To-Do Display the description of pokemon
-      console.log("returning!!");
-      clearInput();
+      console.log("returning" + pokemon_data[i][0]);
       break;
     }
   }
-
+  console.log(result);
   if( pokemon_found  == false)
   {
     alert("Pokemon not found :( !!");
-    clearInput();
     return;
   }
-  
+  else
+  {
+    let alert_message = "Pokemon match found for: \"" + ip_number + "\" !!\n" ;
+    result.sort();
+    for (let i = 0; i < result.length; i++)
+    {
+      alert_message += result[i];
+    }
+    alert( alert_message );
+  }
+  clearInput();
 }
 
 function searchByName()
 {
-  console.table(pokemon_data);
+  //console.table(pokemon_data);
   let name = document.getElementById("pokename").value;
   let ret_val = validate_getpokename(name);
   if (ret_val == false)
