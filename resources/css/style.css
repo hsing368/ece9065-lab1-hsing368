@@ -1,7 +1,12 @@
 body {
-  background-color: #f2f2f2;
+  background-color: #d9caca;
 }
 
+#header{
+  text-align: center;
+  font-size: 20px;
+  background: #995ed8;  
+}
 .search-field {
   margin: auto;
   width: 60%;
@@ -33,7 +38,7 @@ body {
   transition: 0.7s;
 }
 
-.button1 {background-color: #d50d0d;} /* Green */
+.button1 {background-color: #07540f;} /* Green */
 .button2 {background-color: #3e4704;} /* Blue */
 
 #wrapper {
@@ -54,7 +59,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   align-content: top;
-  height: 600px;
+  height: 1650x;
 }
 
 #image-ulist .image-item
@@ -66,6 +71,13 @@ body {
   min-height: 100px;
 }
 
+ #image-ulist .img-text{
+  width: 150px;
+  padding: 1px 2px;
+  visibility: visible;
+  opacity: 0.8; 
+  font-size: 12px;
+ }
 
 #image-ulist .pokemon-info {
   background-color: rgb(177, 203, 64);
@@ -156,4 +168,8 @@ body {
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 10px;
+}
+
+footer{
+  font-size:small;
 }

@@ -41,7 +41,6 @@ function searchKeyPress(e, ip_id)
 
 function clearInput()
 {
-  // To-Do Clear based on event
   document.getElementById("pokeno").value = "";
   document.getElementById("pokename").value = "";
 }
@@ -60,18 +59,26 @@ function searchByNumber()
   let result = [];
   for (let i = 0; i < pokemon_data.length; i++)
   {
-    let stored_number = pokemon_data[i][1];
-    console.log(ip_number + " " + stored_number);
-    if ( ip_number == stored_number )
+    let stored_number = (pokemon_data[i][1]).toString();
+    //console.log(ip_number + " " + stored_number);
+    if ( stored_number.includes(ip_number.toString()) )
     {
-      console.log("Pokemon match!! " + pokemon_data[i][0]);
-      result.push("Name: " + pokemon_data[i][0].toString() + " Description: " + pokemon_data[i][4][0].toString() + " " + pokemon_data[i][4][1].toString() + "\n");
+      let pokemon_parent = (pokemon_data[i][2].toString()==="") ? "NA" : pokemon_data[i][2].toString();
+      let pokemon_desc   = (pokemon_data[i][3].toString()==="") ? "NA" : pokemon_data[i][3].toString();
+      //console.log("Pokemon match!! " + pokemon_data[i][0]);
+      result.push( (result.length + 1) +". Name: " + pokemon_data[i][0].toString() + "; Number: " + stored_number + "; Pokemon-type: " + pokemon_data[i][4][0].toString()
+                    + " " + pokemon_data[i][4][1].toString() + "\n\tPokemon Parent: " + pokemon_parent + "; Pokemon Descendant: " + pokemon_desc + "\n");
       pokemon_found = true;
-      console.log("returning" + pokemon_data[i][0]);
-      break;
+      //console.log("returning" + pokemon_data[i][0]);
+      
+      if(result.length == 5)
+      {
+        break;
+      }
     }
   }
-  console.log(result);
+
+  //console.log(result);
   if( pokemon_found  == false)
   {
     alert("Pokemon not found :( !!");
@@ -109,9 +116,14 @@ function searchByName()
     let stored_name = pokemon_data[i][0].toString().toLowerCase();
     if ( stored_name.includes(ip_name) )
     {
-      result.push("Name: " + pokemon_data[i][0].toString() + " Description: " + pokemon_data[i][4][0].toString() + " " + pokemon_data[i][4][1].toString() + "\n");
+      let pokemon_parent = (pokemon_data[i][2].toString()==="") ? "NA" : pokemon_data[i][2].toString();
+      let pokemon_desc   = (pokemon_data[i][3].toString()==="") ? "NA" : pokemon_data[i][3].toString();
+      //console.log("Pokemon match!! " + pokemon_data[i][0]);
+      result.push( (result.length + 1) +". Name: " + pokemon_data[i][0].toString() + "; Number: " + ((pokemon_data[i][1]).toString()) + "; Pokemon-type: " + pokemon_data[i][4][0].toString()
+                    + " " + pokemon_data[i][4][1].toString() + "\n\tPokemon Parent: " + pokemon_parent + "; Pokemon Descendant: " + pokemon_desc + "\n");
+
       pokemon_found = true;
-      console.log("returning" + pokemon_data[i][0]);
+      //console.log("returning" + pokemon_data[i][0]);
 
       if(result.length == 5)
       {
@@ -119,7 +131,8 @@ function searchByName()
       }
     }
   }
-  console.log(result);
+  
+  //console.log(result);
   if( pokemon_found  == false)
   {
     alert("Pokemon not found :( !!");
