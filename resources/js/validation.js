@@ -1,7 +1,7 @@
 function validate_getpokename(x)
 {
     var regex=/^[a-zA-Z]+$/;
-    if (x.length > 20) 
+    if (x.length > 20)  
     {
         alert("Must input name less than 20 characters");
         return false;

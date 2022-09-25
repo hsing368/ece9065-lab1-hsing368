@@ -1,4 +1,4 @@
-const pokemon_data = 
+const pokemon_data =  
 [
   [['Bulbasaur'],	1,	[''], ['Ivysaur'],	['Grass','Poison']],
   [['Ivysaur'],	2,	['Bulbasaur'],	['Venusaur'],	['Grass','Poison']],
