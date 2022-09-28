@@ -1,3 +1,5 @@
+//Initialize the pokemon data array
+
 const pokemon_data =  
 [
   [['Bulbasaur'],	1,	[''], ['Ivysaur'],	['Grass','Poison']],
@@ -22,6 +24,7 @@ const pokemon_data =
   [['Raticate'],	20,	['Rattata'],	[''],	['Normal','']]
 ];
 
+//Caller function to invoke Search functions when Enter key is pressed
 function searchKeyPress(e, ip_id)
 {
     if (e.keyCode == 13)
@@ -39,15 +42,20 @@ function searchKeyPress(e, ip_id)
     }
 }
 
+//Function to clear the text box values for Search by Name & Number text-boxes
 function clearInput()
 {
   document.getElementById("pokeno").value = "";
   document.getElementById("pokename").value = "";
 }
 
+//Function to Search by number
 function searchByNumber()
 {
+  //Get the input value from the user
   let ip_number = document.getElementById("pokeno").value;
+
+  //Validate the input number for incorrect range
   let ret_val = validate_getpokeno(ip_number);
   if (ret_val == false)
   {
@@ -56,21 +64,24 @@ function searchByNumber()
   }
 
   let pokemon_found = false;
-  let result = [];
+  let result = []; //This holds the resultant strings to display in alert box
+
+  //Loop through the pokemon data to match the input number
   for (let i = 0; i < pokemon_data.length; i++)
   {
     let stored_number = (pokemon_data[i][1]).toString();
-    //console.log(ip_number + " " + stored_number);
+
+    //If the number matches, add to the result array
     if ( stored_number.includes(ip_number.toString()) )
     {
       let pokemon_parent = (pokemon_data[i][2].toString()==="") ? "NA" : pokemon_data[i][2].toString();
       let pokemon_desc   = (pokemon_data[i][3].toString()==="") ? "NA" : pokemon_data[i][3].toString();
-      //console.log("Pokemon match!! " + pokemon_data[i][0]);
+      
       result.push( (result.length + 1) +". Name: " + pokemon_data[i][0].toString() + "; Number: " + stored_number + "; Pokemon-type: " + pokemon_data[i][4][0].toString()
                     + " " + pokemon_data[i][4][1].toString() + "\n\tPokemon Parent: " + pokemon_parent + "; Pokemon Descendant: " + pokemon_desc + "\n");
       pokemon_found = true;
-      //console.log("returning" + pokemon_data[i][0]);
       
+      //Stop processing if there are 5 results
       if(result.length == 5)
       {
         break;
@@ -88,19 +99,26 @@ function searchByNumber()
   {
     let alert_message = "Pokemon match found for: \"" + ip_number + "\" !!\n" ;
     result.sort();
+
+    //Construct the alert message log
     for (let i = 0; i < result.length; i++)
     {
       alert_message += result[i];
     }
     alert( alert_message );
   }
+
+  //Clear the text-box input after the process is done
   clearInput();
 }
 
+//Function to Search by name
 function searchByName()
 {
-  //console.table(pokemon_data);
+  //Get the input value from the user
   let name = document.getElementById("pokename").value;
+
+  //Validate the input number for incorrect range
   let ret_val = validate_getpokename(name);
   if (ret_val == false)
   {
@@ -110,7 +128,9 @@ function searchByName()
 
   let ip_name = name.toLowerCase();
   let pokemon_found = false;
-  let result = [];
+  let result = []; //This holds the resultant strings to display in alert box
+
+  //If the number matches, add to the result array
   for (let i = 0; i < pokemon_data.length; i++)
   {
     let stored_name = pokemon_data[i][0].toString().toLowerCase();
@@ -118,13 +138,13 @@ function searchByName()
     {
       let pokemon_parent = (pokemon_data[i][2].toString()==="") ? "NA" : pokemon_data[i][2].toString();
       let pokemon_desc   = (pokemon_data[i][3].toString()==="") ? "NA" : pokemon_data[i][3].toString();
-      //console.log("Pokemon match!! " + pokemon_data[i][0]);
+      
       result.push( (result.length + 1) +". Name: " + pokemon_data[i][0].toString() + "; Number: " + ((pokemon_data[i][1]).toString()) + "; Pokemon-type: " + pokemon_data[i][4][0].toString()
                     + " " + pokemon_data[i][4][1].toString() + "\n\tPokemon Parent: " + pokemon_parent + "; Pokemon Descendant: " + pokemon_desc + "\n");
 
       pokemon_found = true;
-      //console.log("returning" + pokemon_data[i][0]);
 
+      //Stop processing if there are 5 results
       if(result.length == 5)
       {
         break;
@@ -132,7 +152,6 @@ function searchByName()
     }
   }
   
-  //console.log(result);
   if( pokemon_found  == false)
   {
     alert("Pokemon not found :( !!");
@@ -142,11 +161,15 @@ function searchByName()
   {
     let alert_message = "Pokemon match found for: \"" + ip_name + "\" !!\n" ;
     result.sort();
+
+    //Construct the alert message log
     for (let i = 0; i < result.length; i++)
     {
       alert_message += result[i];
     }
     alert( alert_message );
   }
+
+  //Clear the text-box input after the process is done
   clearInput();
 }
