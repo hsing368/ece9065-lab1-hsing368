@@ -31,12 +31,10 @@ function searchKeyPress(e, ip_id)
     {
         if (ip_id === 'number')
         {
-          console.log("Enter key number pressed");
           searchByNumber();
         }
         else if (ip_id === 'name')
         {
-          console.log("Enter key name pressed");
           searchByName();
         }
     }
@@ -63,6 +61,7 @@ function searchByNumber()
     return;
   }
 
+  ip_number = Number(ip_number);
   let pokemon_found = false;
   let result = []; //This holds the resultant strings to display in alert box
 
