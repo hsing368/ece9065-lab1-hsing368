@@ -24,6 +24,8 @@ const pokemon_data =
   [['Raticate'],	20,	['Rattata'],	[''],	['Normal','']]
 ];
 
+var dyn_search_list = document.getElementById("dyn-image-list");
+
 //Caller function to invoke Search functions when Enter key is pressed
 function searchKeyPress(e, ip_id)
 {
@@ -76,8 +78,26 @@ function searchByNumber()
       let pokemon_parent = (pokemon_data[i][2].toString()==="") ? "NA" : pokemon_data[i][2].toString();
       let pokemon_desc   = (pokemon_data[i][3].toString()==="") ? "NA" : pokemon_data[i][3].toString();
       
-      result.push( (result.length + 1) +". Name: " + pokemon_data[i][0].toString() + "; Number: " + stored_number + "; Pokemon-type: " + pokemon_data[i][4][0].toString()
+      /*result.push( (result.length + 1) +". Name: " + pokemon_data[i][0].toString() + "; Number: " + stored_number + "; Pokemon-type: " + pokemon_data[i][4][0].toString()
                     + " " + pokemon_data[i][4][1].toString() + "\n\tPokemon Parent: " + pokemon_parent + "; Pokemon Descendant: " + pokemon_desc + "\n");
+      
+      */
+
+      let stored_number = (pokemon_data[i][1]).toString();
+      let class_name = "item"+stored_number;
+      let pokemon_name = pokemon_data[i][0].toString().toLowerCase();
+    
+      let li = document.createElement('li');
+      li.className = 'image-item';
+      li.id = class_name;
+    
+      let p_name = document.createElement('p');
+      p_name.className = 'name';
+      p_name.appendChild(document.createTextNode(pokemon_name));
+    
+      li.appendChild(p_name);
+      dyn_search_list.appendChild(li);
+
       pokemon_found = true;
       
       //Stop processing if there are 5 results
@@ -138,9 +158,10 @@ function searchByName()
       let pokemon_parent = (pokemon_data[i][2].toString()==="") ? "NA" : pokemon_data[i][2].toString();
       let pokemon_desc   = (pokemon_data[i][3].toString()==="") ? "NA" : pokemon_data[i][3].toString();
       
-      result.push( (result.length + 1) +". Name: " + pokemon_data[i][0].toString() + "; Number: " + ((pokemon_data[i][1]).toString()) + "; Pokemon-type: " + pokemon_data[i][4][0].toString()
+      /*result.push( (result.length + 1) +". Name: " + pokemon_data[i][0].toString() + "; Number: " + ((pokemon_data[i][1]).toString()) + "; Pokemon-type: " + pokemon_data[i][4][0].toString()
                     + " " + pokemon_data[i][4][1].toString() + "\n\tPokemon Parent: " + pokemon_parent + "; Pokemon Descendant: " + pokemon_desc + "\n");
-
+      */
+     
       pokemon_found = true;
 
       //Stop processing if there are 5 results
