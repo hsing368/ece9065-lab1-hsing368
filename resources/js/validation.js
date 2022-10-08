@@ -22,12 +22,15 @@ function validate_getpokename(x)
 function validate_getpokeno(x)
 {
     //Regex for matching the name, includes only characters from A-Z or a-z
-    var regex=/^[a-zA-Z]+$/; 
+    var regex=/^[0-9]+$/; 
 
     //If the input is a string, invalidate the input
-    if (x.match(regex))
-    {
-        alert("Must input number");
+    if (!x.match(regex))
+    {   
+        if((last_ip_num==""))
+        {
+            alert("Must input number");
+        }
         return false;
     }
 
