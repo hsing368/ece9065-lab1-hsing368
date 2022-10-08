@@ -90,11 +90,17 @@ function searchByNumber()
       let li = document.createElement('li');
       li.className = 'image-item';
       li.id = class_name;
-    
+
+      let img = document.createElement('img');
+      img.src = "resources/images/pokemon/"+stored_number+".png";
+      img.alt = pokemon_name;
+      img.className = 'image-item';
+
       let p_name = document.createElement('p');
       p_name.className = 'name';
       p_name.appendChild(document.createTextNode(pokemon_name));
-    
+
+      li.appendChild(img);
       li.appendChild(p_name);
       dyn_search_list.appendChild(li);
 
@@ -161,7 +167,7 @@ function searchByName()
       /*result.push( (result.length + 1) +". Name: " + pokemon_data[i][0].toString() + "; Number: " + ((pokemon_data[i][1]).toString()) + "; Pokemon-type: " + pokemon_data[i][4][0].toString()
                     + " " + pokemon_data[i][4][1].toString() + "\n\tPokemon Parent: " + pokemon_parent + "; Pokemon Descendant: " + pokemon_desc + "\n");
       */
-     
+
       pokemon_found = true;
 
       //Stop processing if there are 5 results
