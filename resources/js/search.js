@@ -27,7 +27,7 @@ const pokemon_data =
 //Caller function to invoke Search functions when Enter key is pressed
 function searchKeyPress(e, ip_id)
 {
-    if (e.keyCode == 13)
+    //if (e.keyCode == 13)
     {
         if (ip_id === 'number')
         {
@@ -81,17 +81,17 @@ function searchByNumber()
       pokemon_found = true;
       
       //Stop processing if there are 5 results
-      if(result.length == 5)
+      /*if(result.length == 5)
       {
         break;
-      }
+      }*/
     }
   }
 
   //console.log(result);
   if( pokemon_found  == false)
   {
-    alert("Pokemon not found :( !!");
+    //alert("Pokemon not found :( !!");
     return;
   }
   else
@@ -104,7 +104,7 @@ function searchByNumber()
     {
       alert_message += result[i];
     }
-    alert( alert_message );
+    //alert( alert_message );
   }
 
   //Clear the text-box input after the process is done
@@ -144,16 +144,16 @@ function searchByName()
       pokemon_found = true;
 
       //Stop processing if there are 5 results
-      if(result.length == 5)
+      /*if(result.length == 5)
       {
         break;
-      }
+      }*/
     }
   }
   
   if( pokemon_found  == false)
   {
-    alert("Pokemon not found :( !!");
+    //alert("Pokemon not found :( !!");
     return;
   }
   else
@@ -166,7 +166,7 @@ function searchByName()
     {
       alert_message += result[i];
     }
-    alert( alert_message );
+    //alert( alert_message );
   }
 
   //Clear the text-box input after the process is done
