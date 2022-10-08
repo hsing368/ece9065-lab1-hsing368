@@ -90,18 +90,46 @@ function searchByNumber()
       let li = document.createElement('li');
       li.className = 'image-item';
       li.id = class_name;
-
+    
       let img = document.createElement('img');
       img.src = "resources/images/pokemon/"+stored_number+".png";
       img.alt = pokemon_name;
-      img.className = 'image-item';
-
+          
+      //console.log(li);
+      //console.log(img);
+      let p_info = document.createElement('div');
+      p_info.className = 'pokemon-info';
+    
+      let p_id_num = document.createElement('p');
+      p_id_num.appendChild(document.createTextNode("#00"+stored_number));
+    
       let p_name = document.createElement('p');
       p_name.className = 'name';
       p_name.appendChild(document.createTextNode(pokemon_name));
-
+    
+      let p_parent_info = document.createElement('div');
+      p_parent_info.appendChild(document.createTextNode('Parent: '+(pokemon_data[i][2]).toString()+'- '));
+      p_parent_info.appendChild(document.createElement('br'));
+      p_parent_info.appendChild(document.createTextNode(' Descendant: '+(pokemon_data[i][3]).toString()));
+      
+      let p_talent = document.createElement('div');
+      p_talent.className = 'talent';
+    
+      let p_talent_1 = document.createElement('span');
+      p_talent_1.appendChild(document.createTextNode((pokemon_data[i][4][0]).toString()));
+      p_talent.appendChild(p_talent_1);
+    
+      let p_talent_2 = document.createElement('span');
+      p_talent_2.appendChild(document.createTextNode((pokemon_data[i][4][1]).toString()));
+      p_talent.appendChild(p_talent_2);
+    
       li.appendChild(img);
-      li.appendChild(p_name);
+      li.appendChild(p_info);
+      p_info.appendChild(p_id_num);
+      p_info.appendChild(p_name);
+      p_info.appendChild(p_parent_info);
+      p_info.appendChild(p_talent);
+
       dyn_search_list.appendChild(li);
 
       pokemon_found = true;
