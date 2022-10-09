@@ -23,6 +23,7 @@ const pokemon_data =
   [['Raticate'],	20,	['Rattata'],	[''],	['Normal','']]
 ];
 
+//Get the reference to the dynamic search list
 var dyn_search_list = document.getElementById("dyn-image-list");
 
 //Caller function to invoke Search functions when Enter key is pressed
@@ -46,32 +47,32 @@ function clearInput()
 {
   //document.getElementById("pokeno").value = "";
   //document.getElementById("pokename").value = "";
-  console.log("Clear input called");
-  //console.log(document.getElementById("dyn-image-list").innerText);//="";
-  //document.getElementById("search-container").removeChild(dyn_list[0]);
-  
+  console.log("Clear input called");  
 }
 
-//Function to get Image list element
+//Function to get the new Image list element
 function getImageElement(i)
 {
   let stored_number = (pokemon_data[i][1]).toString();
-  let class_name = "item"+stored_number;
   let pokemon_name = pokemon_data[i][0].toString().toLowerCase();
 
+  //Creating a new list element
   let li = document.createElement('li');
   li.className = 'image-item';
-  li.id = class_name;
+  let pok_id = "item"+stored_number; //Populate the unique id for each list element
+  li.id = pok_id;
 
+  //Creating the new image child node
   let img = document.createElement('img');
   img.src = "resources/images/pokemon/"+stored_number+".png";
   img.alt = pokemon_name;
   img.className = 'dyn-image-item';
 
-  //console.log(li);
-  //console.log(img);
+  //Creating the new div to hold the pokemon info
   let p_info = document.createElement('div');
   p_info.className = 'pokemon-info';
+
+  //Creating the div child nodes
 
   let p_id_num = document.createElement('p');
   p_id_num.className = 'id-number';
@@ -79,14 +80,16 @@ function getImageElement(i)
 
   let p_name = document.createElement('p');
   p_name.className = 'name';
-  p_name.appendChild(document.createTextNode(pokemon_name));
+  p_name.appendChild(document.createTextNode(pokemon_name.charAt(0).toUpperCase() + pokemon_name.slice(1)));
 
+  //Creating the div child node to hold the details of pokemon family
   let p_parent_info = document.createElement('div');
   p_parent_info.className = 'img-text';
   p_parent_info.appendChild(document.createTextNode('Parent: '+(pokemon_data[i][2]).toString()+'- '));
   p_parent_info.appendChild(document.createElement('br'));
   p_parent_info.appendChild(document.createTextNode(' Descendant: '+(pokemon_data[i][3]).toString()));
   
+  //Creating the div child node to hold the pokemon talen information
   let p_talent = document.createElement('div');
   p_talent.className = 'talent';
 
@@ -100,6 +103,7 @@ function getImageElement(i)
   p_talent_2.appendChild(document.createTextNode((pokemon_data[i][4][1]).toString()));
   p_talent.appendChild(p_talent_2);
 
+  //Linking all the child nodes of the list element
   li.appendChild(img);
   li.appendChild(p_info);
   p_info.appendChild(p_id_num);
@@ -113,6 +117,7 @@ function getImageElement(i)
 //Function to Search by number
 function searchByNumber()
 {
+  //Reset the list element before the Search
   dyn_search_list.replaceChildren();
 
   //Get the input value from the user
@@ -145,6 +150,7 @@ function searchByNumber()
                     + " " + pokemon_data[i][4][1].toString() + "\n\tPokemon Parent: " + pokemon_parent + "; Pokemon Descendant: " + pokemon_desc + "\n");
       */
       
+      //Get the new dynamic list element & append to the dynamic list
       let li = getImageElement(i);
       dyn_search_list.appendChild(li);
 
@@ -159,6 +165,7 @@ function searchByNumber()
 
   if( pokemon_found  == false)
   {
+    //Reset the dynamic list element if pokemon is not found
     dyn_search_list.replaceChildren();
     alert("Pokemon not found :( !!");
     return;
@@ -183,6 +190,7 @@ function searchByNumber()
 //Function to Search by name
 function searchByName()
 {
+  //Reset the list element before the Search
   dyn_search_list.replaceChildren();
 
   //Get the input value from the user
@@ -214,6 +222,7 @@ function searchByName()
                     + " " + pokemon_data[i][4][1].toString() + "\n\tPokemon Parent: " + pokemon_parent + "; Pokemon Descendant: " + pokemon_desc + "\n");
       */
 
+      //Get the new dynamic list element & append to the dynamic list
       let li = getImageElement(i);
       dyn_search_list.appendChild(li);
 
@@ -227,8 +236,10 @@ function searchByName()
     }
   }
   
+  //Reset the list element if pokemon is not found
   if( pokemon_found  == false)
   {
+    //Reset the dynamic list element
     dyn_search_list.replaceChildren();
     alert("Pokemon not found :( !!");
     return;

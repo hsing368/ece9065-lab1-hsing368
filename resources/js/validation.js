@@ -6,8 +6,11 @@ function validate_getpokename(x)
     //Regex for matching the name, includes only characters from A-Z or a-z
     var regex=/^[a-zA-Z]+$/; 
 
-    //If input name length is greater than 20, invlaidate the input
-    if (x.length > 20)  
+    /*
+        If input name length is greater than 20, invlaidate the input
+        only if there was some previous input
+    */
+    if (x.length > 20)
     {
         if((last_ip_name==""))
         {
@@ -25,6 +28,8 @@ function validate_getpokename(x)
         }
         return false;
     }
+
+    //Save the current input for future validations
     last_ip_name = x;
     return true;
 }
@@ -34,8 +39,10 @@ function validate_getpokeno(x)
     //Regex for matching the name, includes only characters from A-Z or a-z
     var regex=/^[0-9]+$/; 
 
-    //If the input is a string, invalidate the input
-    if (!x.match(regex))
+    /*
+        If input name length is greater than 20, invlaidate the input
+        only if there was some previous input
+    */    if (!x.match(regex))
     {   
         if((last_ip_num==""))
         {
@@ -55,6 +62,7 @@ function validate_getpokeno(x)
         return false;
     }
 
+    //Save the current input for future validations
     last_ip_num = x;
     return true;
 }
