@@ -114,6 +114,11 @@ body {
   min-height: 100px;
 }
 
+/* Styling block for each pokemon image */
+#pok-img{
+  width: 100%;
+}
+
 /* Styling block for the pokemon image text 
    Make the less significant text smaller */
 /* #image-ulist .img-text */
