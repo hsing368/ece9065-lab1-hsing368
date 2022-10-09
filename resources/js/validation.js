@@ -1,3 +1,6 @@
+var last_ip_name = "";
+var last_ip_num  = "";
+
 function validate_getpokename(x)
 {
     //Regex for matching the name, includes only characters from A-Z or a-z
@@ -6,16 +9,23 @@ function validate_getpokename(x)
     //If input name length is greater than 20, invlaidate the input
     if (x.length > 20)  
     {
-        alert("Must input name less than 20 characters");
+        if((last_ip_name==""))
+        {
+            alert("Must input name less than 20 characters");
+        }
         return false;
     }
 
     //If the input is not a string, invalidate the input
     if (!x.match(regex))
     {
-        alert("Must input string");
+        if((last_ip_name==""))
+        {
+            alert("Must input string");
+        }
         return false;
     }
+    last_ip_name = x;
     return true;
 }
 
@@ -38,9 +48,13 @@ function validate_getpokeno(x)
     //Check if the number is from 1 - 20
     if (ip_number<1 || ip_number>20)
     {
-        alert("Match input number between 1-20");
+        if((last_ip_num==""))
+        {
+            alert("Match input number between 1-20");
+        }
         return false;
     }
 
+    last_ip_num = x;
     return true;
 }
