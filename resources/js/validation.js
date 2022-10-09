@@ -53,8 +53,6 @@ function validate_getpokeno(x)
         return false;
     }
 
-    
-
     //Check if the number is from 1 - 20
     if (ip_number<1 || ip_number>20)
     {
