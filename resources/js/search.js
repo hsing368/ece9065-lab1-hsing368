@@ -1,5 +1,4 @@
 //Initialize the pokemon data array
-
 const pokemon_data =  
 [
   [['Bulbasaur'],	1,	[''], ['Ivysaur'],	['Grass','Poison']],
@@ -26,6 +25,33 @@ const pokemon_data =
 
 var dyn_search_list = document.getElementById("dyn-image-list");
 
+//Caller function to invoke Search functions when Enter key is pressed
+function searchKeyPress(e, ip_id)
+{
+    //if (e.keyCode == 13)
+    {
+        if (ip_id === 'number')
+        {
+          searchByNumber();
+        }
+        else if (ip_id === 'name')
+        {
+          searchByName();
+        }
+    }
+}
+
+//Function to clear the text box values for Search by Name & Number text-boxes
+function clearInput()
+{
+  //document.getElementById("pokeno").value = "";
+  //document.getElementById("pokename").value = "";
+  console.log("Clear input called");
+  //console.log(document.getElementById("dyn-image-list").innerText);//="";
+  //document.getElementById("search-container").removeChild(dyn_list[0]);
+  
+}
+
 //Function to get Image list element
 function getImageElement(i)
 {
@@ -35,7 +61,6 @@ function getImageElement(i)
 
   let li = document.createElement('li');
   li.className = 'image-item';
-  //li.setAttribute("id", "id_you_like");
   li.id = class_name;
 
   let img = document.createElement('img');
@@ -47,7 +72,6 @@ function getImageElement(i)
   //console.log(img);
   let p_info = document.createElement('div');
   p_info.className = 'pokemon-info';
-
 
   let p_id_num = document.createElement('p');
   p_id_num.className = 'id-number';
@@ -86,29 +110,6 @@ function getImageElement(i)
   return li;
 }
 
-//Caller function to invoke Search functions when Enter key is pressed
-function searchKeyPress(e, ip_id)
-{
-    //if (e.keyCode == 13)
-    {
-        if (ip_id === 'number')
-        {
-          searchByNumber();
-        }
-        else if (ip_id === 'name')
-        {
-          searchByName();
-        }
-    }
-}
-
-//Function to clear the text box values for Search by Name & Number text-boxes
-function clearInput()
-{
-  document.getElementById("pokeno").value = "";
-  document.getElementById("pokename").value = "";
-}
-
 //Function to Search by number
 function searchByNumber()
 {
@@ -128,7 +129,7 @@ function searchByNumber()
   ip_number = Number(ip_number);
   let pokemon_found = false;
   let result = []; //This holds the resultant strings to display in alert box
-
+  
   //Loop through the pokemon data to match the input number
   for (let i = 0; i < pokemon_data.length; i++)
   {
@@ -142,14 +143,12 @@ function searchByNumber()
       
       /*result.push( (result.length + 1) +". Name: " + pokemon_data[i][0].toString() + "; Number: " + stored_number + "; Pokemon-type: " + pokemon_data[i][4][0].toString()
                     + " " + pokemon_data[i][4][1].toString() + "\n\tPokemon Parent: " + pokemon_parent + "; Pokemon Descendant: " + pokemon_desc + "\n");
-      
       */
-
+      
       let li = getImageElement(i);
       dyn_search_list.appendChild(li);
 
       pokemon_found = true;
-      
       //Stop processing if there are 5 results
       /*if(result.length == 5)
       {
@@ -158,11 +157,10 @@ function searchByNumber()
     }
   }
 
-  //console.log(result);
   if( pokemon_found  == false)
   {
     dyn_search_list.replaceChildren();
-    //alert("Pokemon not found :( !!");
+    alert("Pokemon not found :( !!");
     return;
   }
   else
@@ -202,10 +200,11 @@ function searchByName()
   let pokemon_found = false;
   let result = []; //This holds the resultant strings to display in alert box
 
-  //If the number matches, add to the result array
   for (let i = 0; i < pokemon_data.length; i++)
   {
     let stored_name = pokemon_data[i][0].toString().toLowerCase();
+
+    //If the number matches, add to the result array
     if ( stored_name.includes(ip_name) )
     {
       let pokemon_parent = (pokemon_data[i][2].toString()==="") ? "NA" : pokemon_data[i][2].toString();
@@ -231,7 +230,7 @@ function searchByName()
   if( pokemon_found  == false)
   {
     dyn_search_list.replaceChildren();
-    //alert("Pokemon not found :( !!");
+    alert("Pokemon not found :( !!");
     return;
   }
   else
