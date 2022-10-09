@@ -8,30 +8,41 @@
 <link rel="stylesheet" href="resources/css/style.css"> 
 </head>
 
-<body>
+<body id="body">
     <div id="header">
         <h1>Pokédex</h1>
     </div>
     <!-- 
         Creating the text-box fields for Search by number & Search by name"
     -->
-    <div class="search-field">
-    <p>
-        <!-- 
-        Creating the events for the text-box fields for Search by number & Search by name"
-        -->
-        Enter Pokemon Number <input type="text" onkeypress="searchKeyPress(event,'number')" id="pokeno">
-        <button class="button button1" id="pokenobutton" onclick="searchByNumber()">Search by number</button>
-    </p>
-    <p>
-        Enter Pokemon Name <input type="text" onkeypress="searchKeyPress(event,'name')" id="pokename">
-        <button class="button button2" id="pokenamebutton" onclick="searchByName()">Search by name</button>
-    </p>
-    </div>
+    <div class="search-field" id="search-container">
+        <p>
+            <!-- 
+            Creating the events for the text-box fields for Search by number & Search by name"
+            -->
+            Enter Pokemon Number <input type="text" onkeyup="searchKeyPress(event,'number')" id="pokeno">
+            <button class="button button1" id="pokenobutton" onclick="searchByNumber()">Search by number</button>
+        </p>
+        <p>
+            Enter Pokemon Name <input type="text" onkeyup="searchKeyPress(event,'name')" id="pokename">
+            <button class="button button2" id="pokenamebutton" onclick="searchByName()">Search by name</button>
+        </p>
 
+        <!-- 
+            Creating the Dynamic Search Image list for the pokemon
+        -->
+
+        <div id="dyn-wrapper">
+            <ul id="dyn-image-list">
+
+            </ul>
+        </div>
+    </div>   
+    
     <!-- 
-        Creating the Image list for the pokemon
+        Creating the Static Search Image list for the pokemon
     -->
+
     <div id="wrapper">
         <ul id="image-ulist">
             <!-- 
@@ -65,7 +76,7 @@
              <!-- 
                 Add pokemon #3
             -->
-            <div class="image-item item3-1">
+            <div class="image-item item3">
                 <li>
                     <img src="resources/images/pokemon/3.png" alt="Venusaur" style="width:100%">
                     <div class="pokemon-info">
@@ -116,7 +127,7 @@
             <!-- 
                 Add pokemon #6
             -->            
-            <div class="image-item item6-1">
+            <div class="image-item item6">
                 <li>
                     <img src="resources/images/pokemon/6.png" alt="Charizard" style="width:100%">
                     <div class="pokemon-info">
@@ -176,7 +187,7 @@
             <!-- 
                 Add pokemon #9
             -->
-            <div class="image-item item9-1">
+            <div class="image-item item9">
                 <li>
                     <img src="resources/images/pokemon/9.png" alt="Blastoise" style="width:100%">
                     <div class="pokemon-info">
@@ -279,7 +290,7 @@
             <!-- 
                 Add pokemon #15
             -->
-            <div class="image-item item15-1">
+            <div class="image-item item15">
                 <li>
                     <img src="resources/images/pokemon/15.png" alt="Beedrill" style="width:100%">
                     <div class="pokemon-info">
@@ -334,7 +345,7 @@
             <!-- 
                 Add pokemon #18
             -->
-            <div class="image-item item18-1">
+            <div class="image-item item18">
                 <li>
                     <img src="resources/images/pokemon/18.png" alt="Pidgeot" style="width:100%">
                     <div class="pokemon-info">
@@ -396,13 +407,14 @@
         <p>References:<br>
         <ol>
             <li>
-                <p>Resolving Git ignore issues from <a href="https://www.freecodecamp.org/news/span-html-how-to-use-the-span-tag-with-css/">Using span HTML tag with CSS</a></p> 
+                <p>Adding br element in text node from  <a href="https://stackoverflow.com/questions/13511809/javascript-replacing-n-with-br-inside-createtextnode#:~:text=Split%20your%20string%20on%20new%20lines%20Loop%20over,line%20break%20to%20go%20between%20each%20text%20node
+                    ">stackoverflow</a></p> 
             </li>
             <li>
                 <p> Image styling from <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">CSS tricks</a></p> 
             </li>
             <li>
-                <p> Button styling from <a href="https://www.freecodecamp.org/news/css-button-style-hover-color-and-background/">CSS button style</a></p> 
+                <p> Creating nested tag guide from  <a href="https://stackoverflow.com/questions/11840858/creating-nested-tags-using-document-createelement#:~:text=The%20simplest%20way%20is%20with,(%22li%22)%3B%20tag.">stackoverflow</a></p> 
             </li>            
         </ul>
         </p>
