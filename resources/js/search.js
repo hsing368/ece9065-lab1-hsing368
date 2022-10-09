@@ -43,10 +43,18 @@ function searchKeyPress(e, ip_id)
 }
 
 //Function to clear the text box values for Search by Name & Number text-boxes
-function clearInput()
+function clearInput(clr_string)
 {
-  //document.getElementById("pokeno").value = "";
-  //document.getElementById("pokename").value = "";
+  if(clr_string == 'all' || clr_string == 'number')
+  {
+    document.getElementById("pokeno").value = "";
+  }
+
+  if(clr_string == 'all' || clr_string == 'name')
+  {
+    document.getElementById("pokename").value = "";
+  }
+
   console.log("Clear input called");  
 }
 
@@ -127,7 +135,7 @@ function searchByNumber()
   let ret_val = validate_getpokeno(ip_number);
   if (ret_val == false)
   {
-    clearInput();
+    clearInput('all');
     return;
   }
 
@@ -184,7 +192,7 @@ function searchByNumber()
   }
 
   //Clear the text-box input after the process is done
-  clearInput();
+  clearInput('name');
 }
 
 //Function to Search by name
@@ -200,7 +208,7 @@ function searchByName()
   let ret_val = validate_getpokename(name);
   if (ret_val == false)
   {
-    clearInput();
+    clearInput('all');
     return;
   }
 
@@ -208,6 +216,7 @@ function searchByName()
   let pokemon_found = false;
   let result = []; //This holds the resultant strings to display in alert box
 
+  //Loop through the pokemon data to match the input name
   for (let i = 0; i < pokemon_data.length; i++)
   {
     let stored_name = pokemon_data[i][0].toString().toLowerCase();
@@ -258,5 +267,5 @@ function searchByName()
   }
 
   //Clear the text-box input after the process is done
-  clearInput();
+  clearInput('number');
 }
