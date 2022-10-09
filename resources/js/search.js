@@ -112,6 +112,8 @@ function clearInput()
 //Function to Search by number
 function searchByNumber()
 {
+  dyn_search_list.replaceChildren();
+
   //Get the input value from the user
   let ip_number = document.getElementById("pokeno").value;
 
@@ -159,6 +161,7 @@ function searchByNumber()
   //console.log(result);
   if( pokemon_found  == false)
   {
+    dyn_search_list.replaceChildren();
     //alert("Pokemon not found :( !!");
     return;
   }
@@ -182,6 +185,8 @@ function searchByNumber()
 //Function to Search by name
 function searchByName()
 {
+  dyn_search_list.replaceChildren();
+
   //Get the input value from the user
   let name = document.getElementById("pokename").value;
 
@@ -212,7 +217,7 @@ function searchByName()
 
       let li = getImageElement(i);
       dyn_search_list.appendChild(li);
-      
+
       pokemon_found = true;
 
       //Stop processing if there are 5 results
@@ -225,6 +230,7 @@ function searchByName()
   
   if( pokemon_found  == false)
   {
+    dyn_search_list.replaceChildren();
     //alert("Pokemon not found :( !!");
     return;
   }
