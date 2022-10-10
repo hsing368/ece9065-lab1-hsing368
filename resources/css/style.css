@@ -66,8 +66,7 @@ body {
   align-items: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
-  align-content: top;
-  height: 1650x;
+  align-content: center;
   width: 85%;
 }
 
@@ -99,8 +98,8 @@ body {
   align-items: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
-  align-content: top;
-  height: 1650x;
+  align-content: center;
+  height: 1650px;
 }
 
 /* Styling block for each pokemon item */
@@ -114,6 +113,9 @@ body {
   min-height: 100px;
 }
 
+img{
+  width: 100%;
+}
 /* Styling block for each pokemon image */
 #pok-img{
   width: 100%;
